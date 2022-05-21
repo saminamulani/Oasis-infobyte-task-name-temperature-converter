@@ -1,19 +1,13 @@
-let celsius = document.getElementById("celsius");
-let fahrenheit = document.getElementById("fahrenheit");
-function cToF(celsius) 
-{
-  var cTemp = celsius;
-  var cToFahr = cTemp * 9 / 5 + 32;
-  var message = cTemp+'\xB0C is ' + cToFahr + ' \xB0F.';
-    console.log(message);
-}
+let celsius = document.getElementById('celsius');
+let fahrenheit = document.getElementById('fahrenheit');
 
-function fToC(fahrenheit) 
-{
-  var fTemp = fahrenheit;
-  var fToCel = (fTemp - 32) * 5 / 9;
-  var message = fTemp+'\xB0F is ' + fToCel + '\xB0C.';
-    console.log(message);
-} 
-cToF(60);
-fToC(45);
+celsius.oninput = () => {
+  let output = (parseFloat(celsius.value) * 9) / 5 + 32;
+  fahrenheit.value = parseFloat(output.toFixed(2));
+};
+
+fahrenheit.oninput = () => {
+  let output = ((parseFloat(fahrenheit.value) - 32) * 5) / 9;
+  celsius.value = parseFloat(output.toFixed(2));
+};
+
